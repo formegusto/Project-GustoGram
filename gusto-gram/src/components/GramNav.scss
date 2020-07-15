@@ -1,0 +1,85 @@
+.GramNavTop {
+    position: fixed;
+    display: flex;
+    height: 80px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: #000000;
+}
+
+.nav-title {
+    padding: 15px;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.nav-content {
+    display: flex;
+    padding: 15px;
+    color: white;
+    font-size: 3rem;
+    flex-direction: row;
+    align-items: center;
+    .content-ul {
+        overflow: auto;
+        list-style-type: none;
+    }
+    .content-li, .nav-dropdown-li {
+        float: left;
+        display: flex;
+        align-items: center;
+    }
+    .nav-list, .nav-album {
+        cursor: pointer;
+        &:hover {
+            color: gray;
+            border: 1px solid white;
+        }
+    }
+    .nav-dropdown {
+        cursor: pointer;
+        &:hover {
+            color: gray;
+            border: 1px solid white;
+        }
+    }
+    .nav-dropdown-li {
+        .dropdown-ul {
+            background: black;
+            justify-content: center;
+            align-content:center;
+            flex-direction:column;
+            flex-wrap: wrap;
+            position: absolute;
+            top: 65px;
+            right: 0px;
+            width: 100%;
+            padding: 5px;
+            list-style-type: none;
+            display:none;
+            &:hover {
+                .dropdown-ul {
+                    display: flex;
+                }
+            }
+        }
+        .dropdown-li {
+            font-size: 2rem;
+            text-align: center;
+            margin: 10px;
+            &:hover{
+                cursor: pointer;
+            }
+        }
+        &:hover {
+            .dropdown-ul {
+                display: flex;
+            }
+        }
+    }
+}
