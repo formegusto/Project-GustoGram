@@ -3,13 +3,13 @@ import './GramView.scss';
 import GramItem from './GramItem';
 import GramInsert from './GramInsert';
 
-const GramView = ( {boardType, grams, closeGram} ) => {
+const GramView = ( {gramType, grams, closeGram, insertGram} ) => {
     return (
-        <div className={boardType}>
-            <GramInsert/>
+        <div className={gramType}>
+            <GramInsert insertGram={insertGram}/>
             {
                 grams.map(gram => (
-                    <GramItem gram={gram} key={gram.id} closeGram={closeGram} />
+                    <GramItem gram={gram} key={gram.id} closeGram={closeGram}/>
                 ))
             }
         </div>

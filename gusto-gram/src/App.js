@@ -27,10 +27,15 @@ const App = () => {
       text:"집가서 뭐할지 생각 중이다."
     }
   ]);
-  const [boardType, setBoardType] = useState('list');
+  const [gramType, setGramType] = useState('list');
 
-  const onChangeBoardType = (type) => {
-    setBoardType(type);
+  const insertGram = (gram) => {
+    gram.concat(grams);
+    console.log(gram);
+  }
+
+  const onChangeGramType = (type) => {
+    setGramType(type);
   }
 
   const closeGram = (id) => {
@@ -39,8 +44,8 @@ const App = () => {
   
   return (
     <div>
-      <GramNav onChangeBoardType={onChangeBoardType}/>
-        <GramTemplate grams={grams} closeGram={closeGram} boardType={boardType} />
+      <GramNav onChangeGramType={onChangeGramType}/>
+        <GramTemplate grams={grams} closeGram={closeGram} gramType={gramType} insertGram={insertGram}/>
       <GramNavBottom />
     </div>
   )
