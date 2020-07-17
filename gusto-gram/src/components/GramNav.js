@@ -1,8 +1,9 @@
 import React from 'react';
-import { MdViewAgenda , MdViewModule , MdMenu } from 'react-icons/md';
+import { MdViewAgenda , MdViewModule , 
+    MdMenu , MdDataUsage } from 'react-icons/md';
 import './GramNav.scss';
 
-const GramNav = ({ onChangeGramType }) => {
+const GramNav = ({ onChangeGramType, onSpin }) => {
     return (
         <div className="GramNavTop">
             <div className="nav-title">
@@ -12,6 +13,7 @@ const GramNav = ({ onChangeGramType }) => {
                 <ul className="content-ul">
                     <li className="content-li"><MdViewAgenda className="nav-list" onClick={() => onChangeGramType("list")}/></li>
                     <li className="content-li"><MdViewModule className="nav-album" onClick={() => onChangeGramType("album")}/></li>
+                    <li className="content-li"><MdDataUsage className="nav-spin" onClick={() => onSpin()}/></li>
                     <li className="nav-dropdown-li"><MdMenu className="nav-dropdown"/>
                         <ul className="dropdown-ul">
                             <li className="dropdown-li" onClick={() => onChangeGramType("list")}>List</li>

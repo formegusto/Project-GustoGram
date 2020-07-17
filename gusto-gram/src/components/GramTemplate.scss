@@ -1,8 +1,12 @@
 .GramTemplate {
     display: flex;
     justify-content: center;
-    padding-top: 80px;
     padding-bottom: 80px;
     padding-right: 5%;
     padding-left: 5%;
+    .FloatMenu {
+        position: sticky;
+        top: 90px;
+        height: 15px;
+    }
 }

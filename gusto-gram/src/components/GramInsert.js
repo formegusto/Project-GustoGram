@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './GramInsert.scss';
 import { MdMoreHoriz, MdAdd } from 'react-icons/md';
 import testimg from '../img/testimg.jpg';
@@ -21,20 +21,38 @@ function sizeGramInser({insertGram}) {
     }
 }
 
-const GramInsert = () => {
+const GramInsert = ( { insertGram } ) => {
+    const [gram, setGram] = useState({
+        id: 0,
+        text: '',
+        img: testimg
+    });
+    
+    const onChange = (e) => {
+        setGram({
+            ...gram,
+            text : e.target.value,
+        });
+    }
+
+    const onSubmit = (e) => {
+        insertGram(gram);
+        e.preventDefault();
+    }
+
     return (
-        <div className="GramInsert">
+        <form className="GramInsert" onSubmit={onSubmit}>
             <div className="GramClose" onClick={sizeGramInser}>
                 <MdMoreHoriz/>
             </div>
             <img src={testimg} className="insert-img" alt="img"></img>
             <div className="insert-description">
-                <input type="text"/>
-                <button>
+                <input name="text" type="text" onChange={onChange}/>
+                <button type="submit">
                     <MdAdd />
                 </button>
             </div>
-        </div>
+        </form>
     );
 }
 

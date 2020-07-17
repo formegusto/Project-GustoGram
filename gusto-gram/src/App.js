@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import GramNav from './components/GramNav';
 import GramTemplate from './components/GramTemplate';
 import GramNavBottom from './components/GramNavBottom';
@@ -28,11 +28,17 @@ const App = () => {
     }
   ]);
   const [gramType, setGramType] = useState('list');
+  const [spin, setSpin] = useState(false);
+  const nextId = useRef(5);
 
-  const insertGram = (gram) => {
-    gram.concat(grams);
-    console.log(gram);
-  }
+  const insertGram = useCallback((gram) => {
+    gram = {
+      ...gram,
+      id:nextId.current
+    }
+    setGrams(grams.concat(gram));
+    nextId.current += 1;
+  },[grams]);
 
   const onChangeGramType = (type) => {
     setGramType(type);
@@ -42,10 +48,15 @@ const App = () => {
     setGrams(grams.filter(gram => gram.id !== id));
   }
   
+  const onSpin = () => {
+    spin ? setSpin(false) : setSpin(true);
+    console.log('스핀을 시작합니다.');
+  }
+
   return (
     <div>
-      <GramNav onChangeGramType={onChangeGramType}/>
-        <GramTemplate grams={grams} closeGram={closeGram} gramType={gramType} insertGram={insertGram}/>
+      <GramNav onChangeGramType={onChangeGramType} onSpin={onSpin}/>
+      <GramTemplate grams={grams} closeGram={closeGram} gramType={gramType} insertGram={insertGram} spin={spin} />
       <GramNavBottom />
     </div>
   )

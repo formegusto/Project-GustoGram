@@ -1,7 +1,9 @@
 .GramNavTop {
-    position: fixed;
+    z-index: 10;
+    position: sticky;
+    top:0;
     display: flex;
-    height: 80px;
+    height: 90px;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -44,8 +46,17 @@
     }
 }
 
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    } to {
+        transform: rotate(359deg);
+    }
+}
+
 .nav-content {
     display: flex;
+    height: 90px;
     padding: 15px;
     color: white;
     font-size: 3rem;
@@ -65,6 +76,12 @@
         &:hover {
             color: gray;
             border: 1px solid white;
+        }
+    }
+    .nav-spin {
+        cursor: pointer;
+        &:hover {
+            animation: spin 1s infinite linear;
         }
     }
     .nav-dropdown {
