@@ -19,7 +19,7 @@ const GramNav = ({ onChangeGramType, onSpin }) => {
                         <ul className="dropdown-ul">
                             <li className="dropdown-li" onClick={() => onChangeGramType("list")}>List</li>
                             <li className="dropdown-li" onClick={() => onChangeGramType("album")}>Album</li>
-                            <li className="dropdown-li" onClick={() => onSpin()}>Spin</li>
+                            <li className="dropdown-li" onClick={() => onSpin()} data-tooltip-text="Crazy, Spin">Spin</li>
                             <li className="dropdown-li" onClick={() => onChangeGramType("slide")}>Slide</li>
                         </ul>
                     </li>
