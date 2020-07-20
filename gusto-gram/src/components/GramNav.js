@@ -11,15 +11,30 @@ const GramNav = ({ onChangeGramType, onSpin }) => {
             </div>
             <div className="nav-content">
                 <ul className="content-ul">
-                    <li className="content-li"><MdViewAgenda className="nav-list" onClick={() => onChangeGramType("list")}/></li>
-                    <li className="content-li"><MdViewModule className="nav-album" onClick={() => onChangeGramType("album")}/></li>
-                    <li className="content-li"><MdSlideshow className="nav-slide" onClick={() => onChangeGramType("slide")}/></li>
+                    <li className="content-li">
+                        <div className="nav-list" onClick={() => onChangeGramType("list")}> 
+                            <MdViewAgenda />
+                            <div className="tooltip-text">List or List or List!</div> 
+                        </div>
+                    </li>
+                    <li className="content-li">
+                        <div className="nav-album" onClick={() => onChangeGramType("album")}> 
+                            <MdViewModule />
+                            <div className="tooltip-text">Album is Me?</div> 
+                        </div>
+                    </li>
+                    <li className="content-li">
+                        <div className="nav-slide" onClick={() => onChangeGramType("slide")}> 
+                            <MdSlideshow />
+                            <div className="tooltip-text">Slide~~</div> 
+                        </div>
+                    </li>
                     <li className="content-li"><MdDataUsage className="nav-spin" onClick={() => onSpin()}/></li>
                     <li className="nav-dropdown-li"><MdMenu className="nav-dropdown"/>
                         <ul className="dropdown-ul">
                             <li className="dropdown-li" onClick={() => onChangeGramType("list")}>List</li>
                             <li className="dropdown-li" onClick={() => onChangeGramType("album")}>Album</li>
-                            <li className="dropdown-li" onClick={() => onSpin()} data-tooltip-text="Crazy, Spin">Spin</li>
+                            <li className="dropdown-li" onClick={() => onSpin()}>Spin</li>
                             <li className="dropdown-li" onClick={() => onChangeGramType("slide")}>Slide</li>
                         </ul>
                     </li>

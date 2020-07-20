@@ -78,10 +78,16 @@
         align-items: center;
     }
     .nav-list, .nav-album, .nav-slide {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         cursor: pointer;
         &:hover {
             color: gray;
             border: 1px solid white;
+            .tooltip-text {
+                opacity: .8;
+            }
         }
     }
     .nav-spin {
@@ -136,5 +142,31 @@
             }
         }
         
+    }
+}
+
+.tooltip-text {
+    color: black;
+    background-color: white;
+    border-color: black;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    z-index: 200;
+    padding: 10px;
+    position: absolute;
+    font-size: 15px;
+    top: 80px;
+    transition: 0.3s ease-in;
+    opacity: 0;
+    &::before {
+        color: white;
+        position: absolute;
+        top: -20%;
+        left: 10%;
+        border-top: 0 solid transparent;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid;
+        content: '';
     }
 }
